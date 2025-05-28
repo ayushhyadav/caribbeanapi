@@ -1,5 +1,5 @@
 const express = require('express')
-
+const serverless = require('serverless-http');
 const port = 4000
 const mongoose = require('mongoose')
 const bodyParser=require('body-parser')
@@ -205,3 +205,4 @@ app.post('/profile/upload', fileUpload,async (req, res) => {
 app.listen(port,()=>{
   console.log(`Example app listening on port ${port}`)
 })
+module.exports.handler = serverless(app);
